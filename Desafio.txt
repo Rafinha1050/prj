@@ -1,0 +1,89 @@
+Programas na Linguagem C
+
+2.
+
+#include <stdio.h>
+
+int main() {
+    int num, a = 0, b = 1, fib = 0, pertence = 0;
+
+    printf("Informe um número: ");
+    scanf("%d", &num);
+
+    while (fib <= num) {
+        if (fib == num) {
+            pertence = 1;
+            break;
+        }
+
+        fib = a + b;
+        a = b;
+        b = fib;
+    }
+
+    printf("Sequência de Fibonacci: ");
+    if (num == 0) {
+        printf("0");
+        pertence = 1;
+    } else {
+        printf("0 1");
+    }
+
+    while (fib <= num) {
+        printf(" %d", fib);
+        fib = a + b;
+        a = b;
+        b = fib;
+    }
+
+    if (pertence) {
+        printf("\n%d pertence à sequência de Fibonacci.", num);
+    } else {
+        printf("\n%d não pertence à sequência de Fibonacci.", num);
+    }
+
+    return 0;
+}
+-----------------------------------------------------------------------------------------------------------------
+3.
+
+-----------------------------------------------------------------------------------------------------------------
+4.
+
+#include <stdio.h>
+
+int main() {
+    float sp = 67836.43, rj = 36678.66, mg = 29229.88, es = 27165.48, outros = 19849.53;
+    float total = sp + rj + mg + es + outros;
+
+    printf("Percentual de representação de cada estado:\n");
+    printf("SP: %.2f%%\n", (sp / total) * 100);
+    printf("RJ: %.2f%%\n", (rj / total) * 100);
+    printf("MG: %.2f%%\n", (mg / total) * 100);
+    printf("ES: %.2f%%\n", (es / total) * 100);
+    printf("Outros: %.2f%%\n", (outros / total) * 100);
+
+    return 0;
+}
+-----------------------------------------------------------------------------------------------------------------
+5.
+
+#include <stdio.h>
+#include <string.h>
+
+void inverte_string(char* str) {
+    int tamanho = strlen(str);
+    for (int i = 0; i < tamanho / 2; i++) {
+        char temp = str[i];
+        str[i] = str[tamanho - i - 1];
+        str[tamanho - i - 1] = temp;
+    }
+}
+
+int main() {
+    char string[] = "Hello World!";
+    printf("Antes da inversão: %s\n", string);
+    inverte_string(string);
+    printf("Depois da inversão: %s\n", string);
+    return 0;
+}
